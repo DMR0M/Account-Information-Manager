@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Accounts Manager</title>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+        <link rel="stylesheet" type="text/css" href="">
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %} {% endblock %}
+        <script>
+          {% bootstrap_javascript %}
+        </script>
+    </body>
+</html>
+

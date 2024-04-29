@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="alert alert-warning" role="alert">
+            Invalid Inputs
+        {% for field in form %}
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
+        {% endfor %}
+        </div>
+        {% endif %}
+        <h2 style="margin:1rem;">Register</h2>
+            <div class="card-body">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-success" 
+            style="margin:1rem;width:20rem;">Sign Up</button>
+    </form>
+    <script>
+        {% bootstrap_javascript %}
+    </script>
+</body>
+{% endblock %}
